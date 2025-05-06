@@ -13,11 +13,12 @@
  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
  crossorigin=""></script>             
+ <script src="https://unpkg.com/lucide@latest"></script>
 
 </head>
 <body>
  <!-- Navigation Bar -->
-  <nav class="flex items-center justify-between bg-white p-2.5 px-5 h-[64px] w-full fixed shadow-sm">
+  <nav class="flex items-center justify-between bg-white p-2.5 py-4 px-5 h-[64px] w-full relative shadow-md">
     <div class="flex items-center space-x-4">
       <a href="/">
         <img src="/media/images/evenova_1.png" alt="Logo" class="w-[181px] h-[91px] object-contain justify-center items-center mt-1" />
@@ -40,10 +41,12 @@
     </div>
   </nav>
 
-  <div  id="loginModal" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[9999]">
+  <div  id="loginModal" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-[9999]">
 
-    <div class="bg-white p-8 px-10 rounded-lg shadow-lg h-[480px] max-w-sm text-center">
-        <h4 class="text-gray-700 text-sm mb-2"></h4>
+    <div class="relative bg-white p-8 px-10 rounded-lg shadow-lg h-[480px] max-w-sm text-center">
+        <button id="closeLoginBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
         <h2><img src="/media/images/evenova_2.png" alt="" class="w-30 object-contain"></h2>
         <p class="text-sm text-gray-600 mb-6">
           Not a member yet?
@@ -86,7 +89,7 @@
 
   <!-- Hero Section-->
 
-  <section class="h-[757px] bg-white flex  items-center  px-56  pt-20">
+  <section class="h-[757px] bg-white flex  items-center  px-56  pt-6">
     <div class="flex">
         <div>
             <div> <h1 class="text-6xl font-black font-roboto">Plan Events.</br> Connect People.</br> All in One Place.</h1></div>
@@ -157,6 +160,10 @@
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
   }).addTo(map);
 </script>
+
+<script>
+    lucide.createIcons();
+  </script>
 
 </body>
 </html>
