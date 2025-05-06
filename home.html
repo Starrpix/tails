@@ -5,34 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evenova</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/> 
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>             
 
 </head>
 <body>
  <!-- Navigation Bar -->
-  <nav class="flex items-center justify-between bg-gray-200 p-2.5 px-8 h-[64px]">
+  <nav class="flex items-center justify-between bg-white p-2.5 px-5 h-[64px] w-full fixed shadow-sm">
     <div class="flex items-center space-x-4">
       <a href="/">
-        <img src="/media/images/evenova_2.png" alt="Logo" class="w-28 object-contain" />
+        <img src="/media/images/evenova_1.png" alt="Logo" class="w-[181px] h-[91px] object-contain justify-center items-center mt-1" />
       </a>
-      <div class="flex border rounded overflow-hidden bg-white shadow-sm">
-        <input type="text" placeholder="Search events" class="px-3 py-1 focus:outline-none w-40" />
+      <div class="flex border-black border-[0.5px] rounded overflow-hidden bg-white shadow-sm h-[44px]">
+        <input type="text" placeholder="Search events" class="px-3 py-1 focus:outline-none w-50" />
         <span class="border-l"></span>
-        <input type="text" placeholder="Location" class="px-3 py-1 focus:outline-none w-32" />
+        <input type="text" placeholder="Location" class="px-3 py-1 focus:outline-none w-42" />
       </div>
     </div>
     <div>
       <ul class="flex space-x-2">
-        <li class="rounded py-0.5 px-2">
+        <li class="flex rounded  font-light h-[40px] mx-5 font-roboto">
             <button id="openLoginBtn" class="cursor-pointer">Log in</button>
         </li>
-        <li class="rounded bg-blue-800 text-white py-0.5 px-2 font-semibold">
+        <li class=" flex rounded bg-blue-800 text-white font-semibold h-[40px] w-[142px] justify-center items-center bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] font-roboto">
             <button id="openSignupBtn" class="cursor-pointer">Sign up</button>
         </li>
       </ul>
     </div>
   </nav>
 
-  <div  id="loginModal" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 hidden z-50">
+  <div  id="loginModal" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-[9999]">
 
     <div class="bg-white p-8 px-10 rounded-lg shadow-lg h-[480px] max-w-sm text-center">
         <h4 class="text-gray-700 text-sm mb-2"></h4>
@@ -78,23 +86,34 @@
 
   <!-- Hero Section-->
 
-  <section class="h-[757px] bg-red-300 flex justify-between items-center">
+  <section class="h-[757px] bg-white flex  items-center  px-56  pt-20">
     <div class="flex">
         <div>
-            <div> <h1>Plan Events.</br> Connect People.</br> All in One Place</h1></div>
-            <div> <p>Evenova helps you create, manage, and discover local events effortlessly.</p></div>
-            <div>
-                <div>Signup</div>
-                <div>Login</div>
+            <div> <h1 class="text-6xl font-black font-roboto">Plan Events.</br> Connect People.</br> All in One Place.</h1></div>
+            <div> <p class="text-3xl font-light text-gray-500 my-4 mb-7 font-roboto ">Evenova helps you create, manage, and </br> discover local events effortlessly.</p></div>
+            <div class="flex space-x-4">
+                <div class="flex rounded  text-white font-semibold text-2xl h-[67px] w-[272px] justify-center items-center bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] font-roboto">Create Event</div>
+                <div class="flex rounded  font-semibold text-2xl h-[67px] w-[272px] justify-center items-center border-[1.5px] border-black bg-white rounded-[6px] font-roboto">Browse Event</div>
             </div>
 
         </div>
     </div>
-
     <div>
-        <img src="" alt="">
+        <img src="/media/images/evenova_hero.svg" class="w-[630px] h-[620px]" alt="">
     </div>
 </section>
+
+<!-- Map Section-->
+
+<div class="h-[757px] bg-gray-50 px-56 py-10">
+<div class="flex py-6 space-x-4">
+    <h1 class="text-5xl font-roboto font-black pt-2">Events Nearby</h1>
+    <div class="rounded-md overflow-hidden bg-white shadow-lg  h-[60px] w-[260px] py-2"> <input type="text" placeholder="Kathmandu NP" class="px-3 text-center leading-[47px] w-[240px] h-[47px] text-2xl font-normal focus:outline-none " /> </div>
+</div>
+<div class="h-[500px] w-full">
+    <div id="map" class="h-full w-full rounded-[6px]"></div>
+</div>
+</div>
 
   
   
@@ -111,10 +130,12 @@
 
     openLoginBtn.addEventListener("click", () => {
       loginModal.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
     });
 
     closeLoginBtn.addEventListener("click", () => {
       loginModal.classList.add("hidden");
+      document.body.style.overflow = "";
     });
 
    
@@ -127,11 +148,15 @@
      closesignupBtn.addEventListener("click", () => {
       signupModal.classList.add("hidden");
     });
+</script>
 
-    
-
-    
-  </script>
+<script>
+    var map = L.map('map').setView([27.7172, 85.3240], 12);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(map);
+</script>
 
 </body>
 </html>
