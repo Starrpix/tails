@@ -108,10 +108,15 @@
 
 <!-- Map Section-->
 
-<div class="h-[757px] bg-gray-50 px-56 py-10">
+<div class="h-[757px] bg-gray-50 px-56 py-10 ">
 <div class="flex py-6 space-x-4">
     <h1 class="text-5xl font-roboto font-black pt-2">Events Nearby</h1>
-    <div class="rounded-md overflow-hidden bg-white shadow-lg  h-[60px] w-[260px] py-2"> <input type="text" placeholder="Kathmandu NP" class="px-3 text-center leading-[47px] w-[240px] h-[47px] text-2xl font-normal focus:outline-none " /> </div>
+    <div class="relative rounded-md overflow-hidden bg-white shadow-lg h-[60px] w-[260px] py-2">
+        <input id="locationInput" placeholder="Kathmandu, NP"
+          class="px-3 text-center leading-[47px] w-[240px] h-[47px] text-2xl font-normal text-gray-500 focus:outline-none" />
+        <img src="media/images/pencil.png" alt="edit" 
+          class="absolute left-48 top-1/2 transform -translate-y-1/2 h-28 w-28 z-50" />
+      </div>
 </div>
 <div class="h-[500px] w-full">
     <div id="map" class="h-full w-full rounded-[6px]"></div>
@@ -163,7 +168,10 @@
 
 <script>
     lucide.createIcons();
-  </script>
+</script>
+
+
+
 
 </body>
 </html>
