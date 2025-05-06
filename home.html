@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+
+    <nav class="flex items-center justify-between bg-gray-200 p-2.5">
+        <div class="flex items-center space-x-4">
+          <div>
+            <ul class="flex space-x-2">
+              <li class=""><a href="/">
+              <img src="{{ asset('storage/media/evenova_1.png') }}" alt="Logo" class="w-16">
+              </a></li>
+            </ul>
+          </div>
+      
+          <div class="flex border rounded overflow-hidden bg-white shadow-sm">
+            <input type="text" placeholder="search events" class="px-3 py-1 focus:outline-none w-40">
+            <span class="border-l"></span>
+            <input type="text" placeholder="location" class="px-3 py-1 focus:outline-none w-32">
+          </div>
+        </div>
+      
+        <div>
+          <ul class="flex space-x-2">
+            <li class="rounded py-0.5 px-2">
+              <a href="/">Login</a>
+              </li>
+            <li class="rounded bg-blue-800 text-white py-0.5 px-2 font-semibold">
+              <a href="/">Sign up</a>
+              </li>
+          </ul>
+        </div>
+      </nav>
+      
+    
+</body>
+</html>
