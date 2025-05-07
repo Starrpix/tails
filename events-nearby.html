@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Evenova</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/> 
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>             
+ <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<nav class="flex items-center justify-between bg-white p-2.5 py-4 px-5 h-[64px] w-full relative shadow-md">
+    <div class="flex items-center space-x-1">
+      <a href="/">
+        <img src="/media/images/evenova_1.png" alt="Logo" class="w-[250px] h-[140px] object-contain justify-center items-center mt-1" />
+      </a>
+      <div class="flex items-center border border-black/20 rounded-lg overflow-hidden bg-white shadow-sm h-[44px] w-full max-w-xl mx-auto">
+  
+        <!-- Search Box -->
+        <div class="flex items-center px-3 gap-2 flex-1">
+          <i data-lucide="search" class="w-5 h-5 text-[#5E3AE0]"></i>  
+          <input 
+            type="text" 
+            placeholder="Search events" 
+            class="flex-1 py-2 focus:outline-none text-sm placeholder-gray-500" 
+          />
+        </div>
+      
+        <!-- Divider -->
+        <div class="h-full w-px bg-gray-300"></div>
+      
+        <!-- Location Box -->
+        <div class="flex items-center px-3 gap-2">
+          <input 
+            type="text" 
+            placeholder="Bharatpur, NP" 
+            class="w-[120px] py-2 focus:outline-none text-sm font-medium text-black placeholder-black-800" 
+          />
+        </div>
+      
+        <!-- Search Button -->
+        <button class="h-full px-4 bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] text-white flex items-center justify-center">
+          <i data-lucide="search" class="w-5 h-7"></i>
+        </button>
+      </div>
+    </div>
+    <div>
+      <ul class="flex space-x-2">
+        <li class="flex rounded  font-light h-[40px] mx-5 font-roboto">
+            <button id="openLoginBtn" class="cursor-pointer">Log in</button>
+        </li>
+        <li class=" flex rounded bg-blue-800 text-white font-semibold h-[40px] w-[142px] justify-center items-center bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] font-roboto">
+            <button id="openSignupBtn" class="cursor-pointer">Sign up</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Login Modal -->
+  <div  id="loginModal" class=" fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-[9999]">
+
+    <div class="relative bg-white p-8 px-10 rounded-lg shadow-lg h-[480px] max-w-sm text-center">
+        <button id="closeLoginBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        <h2><img src="/media/images/evenova_1.png" alt="" class="w-30 object-contain"></h2>
+        <p class="text-sm text-gray-600 mb-6">
+          Not a member yet?
+          <a href="#" id="openSignupFromLogin" class="text-blue-500 hover:underline">Sign up</a>
+        </p>
+    
+        <form class="text-left space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+            <input type="email" placeholder="Enter your email"
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+    
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input type="password" placeholder="Enter your password"
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+          </div>
+    
+          <div class="flex items-center justify-between text-sm">
+            <label class="flex items-center">
+              <input type="checkbox" class="mr-2"> Keep me signed in
+            </label>
+            <a href="#" id="forgotPasswordBtn"  class="text-blue-500 hover:underline">Forgot password</a>
+          </div>
+    
+          <button type="submit"
+            class="w-full bg-gradient-to-r from-[#5E3AE0] to-[#007AFF]  text-white py-2 rounded-md  transition">
+            Log in
+          </button>
+    
+          <p class="text-xs text-center text-gray-500 mt-4">
+            Having issues with Log in?
+          </p>
+        </form>
+      </div>
+
+      </div>
+
+
+             <!-- Signup Modal -->
+<div id="SignupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-[9999]">
+
+    <div class="relative bg-white p-8 px-10 rounded-lg shadow-lg max-w-sm w-full text-center overflow-y-auto max-h-[90vh]">
+      
+      <!-- Close Button -->
+      <button id="closeSignupBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+  
+      <!-- Logo -->
+      <div class="mb-2">
+        <h2><img src="/media/images/evenova_1.png" alt="" class="w-30 object-contain"></h2>
+      </div>
+  
+      <!-- Redirect Prompt -->
+      <p class="text-sm text-gray-600 mb-6">
+        Already a member?
+        <a href="#" id="openLoginFromSignup" class="text-blue-500 hover:underline">Log in</a>
+      </p>
+  
+      <!-- Form -->
+      <form class="text-left space-y-4">
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Your name</label>
+          <input type="text" placeholder="Enter your name"
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+          <input type="email" placeholder="Enter your email"
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <!-- Password -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+          <input type="password" placeholder="Enter your password"
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <!-- Location -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Location</label>
+          <input type="text" placeholder="Enter your location"
+            class="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400">
+        </div>
+  
+        <!-- Age Checkbox -->
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-1">Age</label>
+          <label class="flex items-center text-sm text-gray-700">
+            <input type="checkbox" class="mr-2"> I am 18 years of age or older.
+          </label>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] text-white py-2 rounded-md hover:from-[#4B2ECD] hover:to-[#006BE0] transition">
+          Sign up
+        </button>
+  
+        <!-- Help Text -->
+        <p class="text-xs text-center text-gray-500 mt-4">
+          Need help signing up?
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Forgot Password Modal -->
+<div id="forgotPasswordModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 hidden z-[9999]">
+
+  <div class="relative bg-white p-8 px-10 rounded-lg shadow-lg max-w-sm text-left w-full">
+    
+    <!-- Close Button -->
+    <button id="closeforgotPassBtn" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+      <i data-lucide="x" class="w-6 h-6"></i>
+    </button>
+
+    <!-- Logo -->
+    <h2 class="mb-4 text-center">
+      <img src="/media/images/evenova_1.png" alt="Evenova Logo" class="w-30 object-contain mx-auto">
+    </h2>
+
+    <!-- Heading -->
+    <h2 class="text-lg font-semibold text-gray-900 mb-2">
+      Forgot password?
+    </h2>
+
+    <!-- Description -->
+    <p class="text-sm text-gray-500 mb-6 leading-relaxed">
+      No worries! Enter the email associated with your account. We’ll send you a secure link to reset your password.
+    </p>
+
+    <!-- Form -->
+    <form class="space-y-4">
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email"
+          class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit"
+        class="w-full py-2 rounded-md text-white font-semibold bg-gradient-to-r from-[#5E3AE0] to-[#007AFF]  hover:from-blue-700 hover:to-purple-700 transition">
+        Send reset link
+      </button>
+    </form>
+  </div>
+
+</div>
+
+
+<div class="flex py-6 space-x-4">
+    <h1 class="text-5xl font-roboto font-black pt-2">Events Nearby</h1>
+</div>    
+
+
+
+
+
+
+
+  
+
+<footer>
+    
+</footer>
+
+
+<script>
+  const openLoginBtn = document.getElementById("openLoginBtn");
+  const loginModal = document.getElementById("loginModal");
+  const closeLoginBtn = document.getElementById("closeLoginBtn");
+
+  const openSignupBtn = document.getElementById("openSignupBtn");
+  const SignupModal = document.getElementById("SignupModal");
+  const closeSignupBtn = document.getElementById("closeSignupBtn");
+
+  const forgotPasswordBtn = document.getElementById("forgotPasswordBtn");
+  const forgotPasswordModal = document.getElementById("forgotPasswordModal");
+  const closeforgotPassBtn = document.getElementById("closeforgotPassBtn");
+
+  const openLoginFromSignup = document.getElementById("openLoginFromSignup");
+  const openSignupFromLogin = document.getElementById("openSignupFromLogin");
+
+  openLoginBtn.addEventListener("click", () => {
+    loginModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeLoginBtn.addEventListener("click", () => {
+    loginModal.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  openSignupBtn.addEventListener("click", () => {
+    SignupModal.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+  });
+
+  closeSignupBtn.addEventListener("click", () => {
+    SignupModal.classList.add("hidden");
+    document.body.style.overflow = "";
+  });
+
+  // Show forgot password modal and hide login modal
+  forgotPasswordBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginModal.classList.add('hidden');
+    forgotPasswordModal.classList.remove('hidden');
+  });
+
+  // Close forgot password modal and show login modal
+  closeforgotPassBtn.addEventListener('click', () => {
+    forgotPasswordModal.classList.add('hidden');
+    loginModal.classList.remove('hidden');
+  });
+
+  // Show login modal from signup modal
+  openLoginFromSignup.addEventListener('click', (e) => {
+    e.preventDefault();
+    SignupModal.classList.add('hidden');
+    loginModal.classList.remove('hidden');
+  });
+
+  openSignupFromLogin.addEventListener("click", (e) => {
+  e.preventDefault();
+  loginModal.classList.add("hidden");
+  SignupModal.classList.remove("hidden");
+});
+
+  // Close the modals when clicking outside of them
+  window.addEventListener("click", (event) => {
+    if (event.target === loginModal) {
+      loginModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+    if (event.target === SignupModal) {
+      SignupModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+    if (event.target === forgotPasswordModal) {
+      forgotPasswordModal.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+  });
+
+</script>
+
+<script>
+    lucide.createIcons();
+
+function toggleAccordion(button) {
+  const body = button.nextElementSibling;
+  const icon = button.querySelector('i');
+
+  // Toggle the clicked accordion
+  const isOpening = body.classList.contains('hidden');
+  document.querySelectorAll('.accordion-body').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.accordion-item i').forEach(ic => ic.setAttribute('data-lucide', 'plus'));
+
+  if (isOpening) {
+    body.classList.remove('hidden');
+    icon.setAttribute('data-lucide', 'minus');
+  }
+
+  lucide.createIcons();
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>    
