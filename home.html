@@ -281,16 +281,75 @@
     </div>
   </section>
 
+<!-- Evenova Info-->
+<section class="flex h-[630px] bg-gray-50 justify-between px-56 py-14 items-center">
 
+ <div>
+<img src="/media/images/1.svg" class="w-[588px] h-[588px]" alt="">
+</div>
 
-
-
-
-
-
-
-  <!-- Footer -->
+<!-- Heading -->
+<div>
+    <h2 class="font-black font-roboto text-5xl">How Evenova Works</h2>
   
+    <!-- Scrollable Accordion Wrapper -->
+    <div class="mt-8 max-h-[400px] overflow-y-auto space-y-4 pr-2">
+  
+      <!-- Accordion Item -->
+      <div class="accordion-item w-[720px] bg-white shadow rounded p-4 border-gray border-1">
+        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full font-semibold text-left">
+          <span class="text-[#21272A] font-roboto text-[24px] font-bold leading-[1.1]">What is Evenova?</span>
+          <i data-lucide="plus" class="icon w-5 h-5 transition-transform duration-200"></i>
+        </button>
+        <div class="accordion-body hidden mt-4 text-gray-700 transition-all duration-300 ease-in-out">
+          <p class="text-[15px] leading-relaxed text-gray-700 font-roboto">
+            Evenova is a platform that connects people through events, making it easy to create, manage,
+            and discover local gatherings. It empowers communities and brings people together meaningfully.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Accordion Item -->
+      <div class="accordion-item w-[720px] bg-white shadow rounded p-4 border-gray border-1">
+        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full font-semibold text-left">
+          <span class="text-[#21272A] font-roboto text-[24px] font-bold leading-[1.1]">How do I create an event on Evenova?</span>
+          <i data-lucide="plus" class="icon w-5 h-5 transition-transform duration-200"></i>
+        </button>
+        <div class="accordion-body hidden mt-4 text-gray-700 transition-all duration-300 ease-in-out">
+          <p class="text-[15px] leading-relaxed text-gray-700 font-roboto">
+            Creating an event is simple! Just click on the 'Create Event' button, fill in the details, and publish it to share
+            with others. You can also add media and control who can attend.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Accordion Item -->
+      <div class="accordion-item w-[720px] bg-white shadow rounded p-4 border-gray border-1">
+        <button onclick="toggleAccordion(this)" class="flex justify-between items-center w-full font-semibold text-left">
+          <span class="text-[#21272A] font-roboto text-[24px] font-bold leading-[1.1]">How does Evenova help in creating local events?</span>
+          <i data-lucide="plus" class="icon w-5 h-5 transition-transform duration-200"></i>
+        </button>
+        <div class="accordion-body hidden mt-4 text-gray-700 transition-all duration-300 ease-in-out">
+          <p class="text-[15px] leading-relaxed text-gray-700 font-roboto">
+            Evenova provides tools and resources to help you plan, promote, and manage your local events effectively.
+            From built-in ticketing to automated reminders, it takes care of the logistics so you can focus on impact.
+          </p>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+    
+</section>
+
+<!-- Footer -->
+
+<footer>
+    
+</footer>
+
 
 
   <script>
@@ -338,6 +397,23 @@
 
 <script>
     lucide.createIcons();
+
+function toggleAccordion(button) {
+  const body = button.nextElementSibling;
+  const icon = button.querySelector('i');
+
+  // Toggle the clicked accordion
+  const isOpening = body.classList.contains('hidden');
+  document.querySelectorAll('.accordion-body').forEach(el => el.classList.add('hidden'));
+  document.querySelectorAll('.accordion-item i').forEach(ic => ic.setAttribute('data-lucide', 'plus'));
+
+  if (isOpening) {
+    body.classList.remove('hidden');
+    icon.setAttribute('data-lucide', 'minus');
+  }
+
+  lucide.createIcons();
+}
 </script>
 
 
