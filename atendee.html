@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evenova</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet" />
+    <style>
+      .gradient-text {
+        background: linear-gradient(180deg, #007aff 0%, #5e3ae0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #007aff 0%, #5e3ae0 100%);
+      }
+    </style>
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="flex items-center justify-between bg-white p-2.5 py-4 px-5 h-[64px] w-full relative shadow-md"
+    >
+      <div class="flex items-center space-x-1">
+        <a href="/home.html">
+          <img
+            src="/media/images/evenova_1.png"
+            alt="Logo"
+            class="w-[250px] h-[140px] object-contain justify-center items-center mt-1"
+          />
+        </a>
+        <div
+          class="flex items-center border border-black/20 rounded-lg overflow-hidden bg-white shadow-sm h-[44px] w-full max-w-xl mx-auto"
+        >
+          <div class="flex items-center px-3 gap-2 flex-1">
+            <i data-lucide="search" class="w-5 h-5 text-[#5E3AE0]"></i>
+            <input
+              type="text"
+              placeholder="Search events"
+              class="flex-1 py-2 focus:outline-none text-sm placeholder-gray-500"
+            />
+          </div>
+          <div class="h-full w-px bg-gray-300"></div>
+          <div class="flex items-center px-3 gap-2">
+            <input
+              type="text"
+              placeholder="Kathmandu, NP"
+              class="w-[120px] py-2 focus:outline-none text-sm font-medium text-black placeholder-black-800"
+            />
+          </div>
+          <button
+            class="h-full px-4 bg-gradient-to-r from-[#5E3AE0] to-[#007AFF] text-white flex items-center justify-center"
+          >
+            <i data-lucide="search" class="w-5 h-7"></i>
+          </button>
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 relative" id="nav-user-section">
+        <!-- Create Button -->
+        <button
+          class="flex items-center gap-2 px-4 h-[44px] border border-indigo-500 text-black rounded-[6px] font-['Roboto'] text-[18px] font-light leading-[134.766%] hover:bg-gray-100 transition"
+        >
+          <span>Create</span>
+          <i data-lucide="plus" class="w-5 h-5 text-indigo-500"></i>
+        </button>
+        <div class="relative">
+          <button
+            id="profileDropdownToggle"
+            class="flex items-center space-x-2 focus:outline-none"
+          >
+            <div
+              class="w-[44px] h-[44px] rounded-full bg-gray-300 overflow-hidden"
+            ></div>
+            <span
+              class="text-black text-center font-['Roboto'] text-[20px] font-light leading-[134.766%]"
+              >Starrpix</span
+            >
+            <svg
+              class="w-4 h-4 ml-1"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <!-- Atendee Dropdown Menu -->
+          <div
+            id="dropdownMenu"
+            class="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-md py-2 z-50 hidden"
+          >
+            <a
+              href="organizer.html"
+              class="w-full text-left px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="briefcase" class="w-4 h-4"></i> Organize Events
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="map" class="w-4 h-4"></i> Browse Events
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="ticket" class="w-4 h-4"></i> Tickets
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="settings" class="w-4 h-4"></i> Account Settings
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-red-600"
+            >
+              <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script>
+      // Lucide icons initialization
+      lucide.createIcons();
+
+      // Initialize dropdown toggle
+      const dropdownToggle = document.getElementById("profileDropdownToggle");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      // Toggle dropdown visibility
+      dropdownToggle.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("hidden");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !dropdownToggle.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.add("hidden");
+        }
+      });
+    </script>
+
+    <script>
+      // Function to handle page transitions smoothly
+      function navigateToPage(url) {
+        window.location.href = url;
+      }
+
+      // Handle clicks on links in dropdown menus
+      document
+        .querySelectorAll("#dropdownMenu a, #dropdownMenuOrganizer a")
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            if (e.target.tagName === "A" && e.target.href.includes(".html")) {
+              e.preventDefault();
+              navigateToPage(e.target.href);
+            }
+          });
+        });
+
+      // Prevent default behavior on non-navigation links
+      document
+        .querySelectorAll(
+          '#dropdownMenu a:not([href*=".html"]), #dropdownMenuOrganizer a:not([href*=".html"])'
+        )
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+          });
+        });
+    </script>
+  </body>
+</html>
