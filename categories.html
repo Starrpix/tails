@@ -6,12 +6,16 @@
     <title>Evenova</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
+    <style>
+      .gradient-text {
+        background: linear-gradient(180deg, #007aff 0%, #5e3ae0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #007aff 0%, #5e3ae0 100%);
+      }
+    </style>
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -291,14 +295,6 @@
           <i data-lucide="x" class="w-6 h-6"></i>
         </button>
 
-<<<<<<< HEAD
-</div>
-<!-- Main Content -->
-<main class="flex-20 px-10">
-  <div class="max-w-screen-xl mx-auto">
-
- <!-- Events Title -->
-=======
         <!-- Logo -->
         <h2 class="mb-4 text-center">
           <img
@@ -307,96 +303,12 @@
             class="w-30 object-contain mx-auto"
           />
         </h2>
->>>>>>> 2128369eca04e05e77a2d1272abdcedfd827b10e
 
         <!-- Heading -->
         <h2 class="text-lg font-semibold text-gray-900 mb-2">
           Forgot password?
         </h2>
 
-<<<<<<< HEAD
- <h1 class="text-2x1 font-bold mb-4 text-center">Events near Bharatpur, NP</h1>
-
- <!-- Filters -->
- <div class="flex flex-wrap justify-center items-center gap-4 mb-8">
-
-   <!-- Date Dropdown -->
-   <div class="relative">
-     <button class="bg-blue-100 text-blue-700 text-sm px-4 py-2 rounded-md">
-       Apr 20 - Apr 22, 2025
-     </button>
-     <!-- Example dropdown (static) -->
-     <div class="absolute hidden bg-white border mt-1 rounded-md shadow-md w-52 text-sm z-10">
-       <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Apr 20 - Apr 22, 2025</div>
-       <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Apr 23 - Apr 25, 2025</div>
-       <div class="px-4 py-2 hover:bg-gray-100 cursor-pointer">Custom Date</div>
-     </div>
-   </div>
-
-   <!-- Type Dropdown -->
-   <div class="relative">
-     <select class="bg-blue-100 text-blue-700 text-sm px-4 py-2 rounded-md">
-       <option>Online</option>
-       <option>Physical</option>
-       <option>Hybrid</option>
-     </select>
-   </div>
-
-   <!-- Sort -->
-   <div class="flex items-center border rounded-md p-4 shadow-sm">
-     <select class="border border-gray-300 text-sm px-3 py-2 rounded-md">
-       <option>Sort by: Relevance</option>
-       <option>Sort by: Date</option>
-       <option>Sort by: Popularity</option>
-     </select>
-   </div>
- </div>
-
- <!-- Events List -->
- <div class="space-y-4 max-w-3xl mx-auto">
-   <!-- Event Card -->
-   <div class="flex items-center border rounded-md p-4 shadow-sm">
-     <img src="https://via.placeholder.com/100x70?text=Event" alt="Event" class="w-24 h-16 object-cover rounded mr-4" />
-     <div class="flex-1">
-       <div class="text-sm text-gray-600">SUN APR 20, 8:45 P.M. NPT</div>
-       <div class="font-semibold text-base">Example Event</div>
-       <div class="text-sm text-gray-500">1 attendee</div>
-     </div>
-   </div>
-
-   <!-- Repeat -->
-   <div class="flex items-center border rounded-md p-4 shadow-sm">
-     <img src="https://via.placeholder.com/100x70?text=People" alt="Event" class="w-24 h-16 object-cover rounded mr-4" />
-     <div class="flex-1">
-       <div class="text-sm text-gray-600">SUN APR 20, 8:45 P.M. NPT</div>
-       <div class="font-semibold text-base">Example Event</div>
-       <div class="text-sm text-gray-500">1 attendee</div>
-     </div>
-   </div>
-
-   <div class="flex items-center border rounded-md p-4 shadow-sm">
-     <img src="https://via.placeholder.com/100x70?text=Online" alt="Event" class="w-24 h-16 object-cover rounded mr-4" />
-     <div class="flex-1">
-       <div class="text-sm text-gray-600">SUN APR 20, 8:45 P.M. NPT</div>
-       <div class="font-semibold text-base">Example Event</div>
-       <div class="text-sm text-gray-500">1 attendee</div>
-     </div>
-   </div>
-
-   <div class="flex items-center border rounded-md p-4 shadow-sm">
-     <img src="https://via.placeholder.com/100x70?text=Workshop" alt="Event" class="w-24 h-16 object-cover rounded mr-4" />
-     <div class="flex-1">
-       <div class="text-sm text-gray-600">SUN APR 20, 8:45 P.M. NPT</div>
-       <div class="font-semibold text-base">Example Event</div>
-       <div class="text-sm text-gray-500">1 attendee</div>
-     </div>
-   </div>
- </div>
-
-</div>
-</main>
-</div>
-=======
         <!-- Description -->
         <p class="text-sm text-gray-500 mb-6 leading-relaxed">
           No worries! Enter the email associated with your account. We’ll send
@@ -419,7 +331,6 @@
               class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
->>>>>>> 2128369eca04e05e77a2d1272abdcedfd827b10e
 
           <!-- Submit Button -->
           <button
@@ -432,11 +343,7 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-</body>
-=======
-    <div class="flex py-6 space-x-4 h-[1000px]"></div>
->>>>>>> 2128369eca04e05e77a2d1272abdcedfd827b10e
+    <div class="h-[1000px]"></div>
 
     <!-- Footer Section -->
     <footer
