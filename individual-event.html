@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Event Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-900 font-sans px-6 py-4">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center mb-6 border-b pb-4">
+    <div class="flex items-center space-x-3">
+        <h2><img src="/media/images/evenova_1.png" alt="" class="w-24 object-contain"></h2>
+      <input type="text" placeholder="Search events" class="border rounded px-4 py-1 text-sm w-64 text-roboto text-thin text-18" />
+    </div>
+    <div class="flex items-center space-x-4">
+      <button class="border px-4 py-1 rounded-full text-sm">Create</button>
+      <div class="flex items-center space-x-2">
+        <div class="w-8 h-8 rounded-full bg-gray-300"></div>
+        <span class="text-sm">Starrpix</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex flex-col lg:flex-row gap-8">
+    
+    <!-- Left Content -->
+    <section class="flex-1">
+      <h1 class="text-2xl font-black mb-2">Exploring R-Language for High School Innovators</h1>
+
+      <!-- Organizer -->
+      <div class="flex items-center space-x-2 text-sm mb-4">
+        <div class="w-8 h-8 rounded-full bg-gray-400"></div>
+        <div>
+          <p class="text-xs">Organized By</p>
+          <p class="font-semibold">R Lang Nepal</p>
+        </div>
+      </div>
+
+      <!-- Event Image -->
+      <img src="https://via.placeholder.com/700x400" alt="Event" class="rounded mb-4 w-full max-w-2xl" />
+
+      <!-- Details -->
+      <div class="mb-6">
+        <h2 class="font-bold text-lg mb-2">Details</h2>
+        <p class="text-sm text-gray-700 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo lorem nec magna feugiat, at malesuada ex dignissim. Integer nec leo et tortor sagittis dictum. Nullam tincidunt arcu vitae est fermentum, in posuere est porttitor. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus vehicula, nisl sit amet scelerisque vehicula, urna urna feugiat sapien, eget laoreet nunc est vel turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo lorem nec magna feugiat, at malesuada ex dignissim. Integer nec leo et tortor sagittis dictum. Nullam tincidunt arcu vitae est fermentum, in posuere est porttitor.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus vehicula, nisl sit amet scelerisque vehicula, urna urna feugiat sapien, eget laoreet nunc est vel turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus commodo lorem nec magna feugiat, at malesuada ex dignissim. Integer 
+        </p>
+      </div>
+
+      <!-- Tags -->
+      <div class="mb-6">
+        <h2 class="font-bold text-lg mb-2">Tags</h2>
+        <div class="flex flex-wrap gap-2 text-sm text-gray-600">
+          <span class="bg-gray-200 px-3 py-1 rounded-full">#Tag1</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full">#Tag2</span>
+          <span class="bg-gray-200 px-3 py-1 rounded-full">#Tag3</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside class="space-y-4">
+        <div class="border p-4 rounded-md">
+          <h3 class="font-semibold mb-2">Event Details</h3>
+          <textarea class="w-full h-20 border rounded-md p-2 text-sm mb-2" placeholder="Event Notes"></textarea>
+          <img src="https://via.placeholder.com/200x150" class="rounded-md" alt="Map" />
+        </div>
+
+        <!-- Tickets -->
+        <div class="space-y-2">
+          <input type="text" placeholder="Tickets" class="w-full border px-3 py-2 rounded-md bg-gray-100 text-sm" disabled />
+          <input type="text" placeholder="Tickets" class="w-full border px-3 py-2 rounded-md bg-gray-100 text-sm" disabled />
+        </div>
+
+        <!-- Attend -->
+        <div class="flex gap-2">
+          <input type="text" class="border px-3 py-2 rounded-md w-full" placeholder="Your Name" />
+          <button class="bg-blue-600 text-white px-4 rounded hover:bg-blue-700">Attend</button>
+        </div>
+      </aside>
+    </div>
+  </main>
+<!-- Heading + Button side by side -->
+<div class="flex items-center  mb-4 space-x-2">
+    <h2 class="text-lg font-semibold text-purple-950 whitespace-nowrap">Create your own event.</h2>
+    <button class="bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition ">
+        Get Started
+    </button>
+ </div>
+
+
+  <!-- Divider line -->
+  <hr class="border-t border-gray-300 my-6"/>
+
+  <!-- Links Section -->
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-6">
+    <div>
+      <h3 class="font-semibold text-purple-950 mb-2">Your Account</h3>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Sign up</a></li>
+        <li><a href="#" class="hover:underline">Log in</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-purple-950  mb-2">Explore</h3>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Create an Event</a></li>
+        <li><a href="#" class="hover:underline">Event Categories</a></li>
+        <li><a href="#" class="hover:underline">Hot Events</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-purple-950  mb-2">Evenova</h3>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">About</a></li>
+        <li><a href="#" class="hover:underline">Help</a></li>
+        <li><a href="#" class="hover:underline">Contact Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="font-semibold text-purple-950  mb-2">Follow us</h3>
+      <!-- Add icons if needed -->
+    </div>
+  </div>
+
+  <!-- Bottom links with minimal spacing -->
+  <div class="flex flex-wrap items-center text-sm text-gray-700 space-x-4">
+    <span>2025 Evenova</span>
+    <a href="#" class="hover:underline">Terms of Service</a>
+    <a href="#" class="hover:underline">Privacy Policy</a>
+    <a href="#" class="hover:underline">Cookie Policy</a>
+    <a href="#" class="hover:underline">License Attribution</a>
+    <a href="#" class="hover:underline">Help</a>
+  </div>
+  
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="flex justify-between items-center px-8 py-4 border-b border-gray-200">
+    <div class="flex items-center space-x-6">
+        <h2><img src="/media/images/evenova_1.png" alt="" class="w-24 object-contain"></h2>
+      <input type="text" placeholder="Search events" class="px-3 py-1 border border-gray-300 rounded-md text-sm w-60">
+    </div>
+    <div class="flex items-center space-x-4">
+        <button class="border px-4 py-1 rounded-full text-sm">Create</button>
+        <div class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-full bg-gray-300"></div>
+          <span class="text-sm">Starrpix</span>
+        </div>
+      </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-8 pt-10 pb-20">
+    <!-- Title -->
+    <h1 class="text-2xl font-semibold mb-8">Payment Details</h1>
+
+    <!-- Ticket Box -->
+    <div class="border border-gray-300 rounded-md px-6 py-4 mb-10">
+      <div class="flex justify-between items-start">
+        <div>
+          <p class="text-lg font-semibold">Conference Name</p>
+          <p class="text-sm text-gray-600">2 * Ticket A</p>
+        </div>
+        <p class="text-lg font-semibold">$200.00</p>
+      </div>
+    </div>
+
+    <!-- Image Placeholder -->
+    <div class="mb-10 flex justify-center">
+      <div class="w-32 h-20 border-2 border-gray-300 border-dashed flex items-center justify-center">
+        <span class="text-xs text-gray-400">Image</span>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="flex justify-between items-center mb-6">
+      <p class="text-lg font-semibold">Total</p>
+      <p class="text-lg font-semibold">$200.00</p>
+    </div>
+
+    <!-- Payment Input + Button -->
+    <div class="flex space-x-4">
+      <input type="text" class="flex-1 px-4 py-2 border border-gray-400 rounded-md" placeholder="Enter card or code">
+      <button class="w-full py-2 rounded text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">
+        Pay now
+      </button>
+    </div>
+  </main>
+
+</body>
+</html>
