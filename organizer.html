@@ -18,6 +18,8 @@
     </style>
     <!-- Lucide Icons Script -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    
   </head>
   <body>
     <!-- Navigation Bar -->
@@ -79,9 +81,10 @@
             id="profileDropdownToggle"
             class="flex items-center space-x-2 focus:outline-none"
           >
-            <div
-              class="w-[44px] h-[44px] rounded-full bg-gray-300 overflow-hidden"
-            ></div>
+          <div
+          class="w-[44px] h-[44px] rounded-full bg-gray-300 overflow-hidden"
+        ><img src="/media/images/ep1.svg" alt=""></div>
+        
             <span
               class="text-black text-center font-['Roboto'] text-[20px] font-light leading-[134.766%]"
               >Starrpix</span
@@ -128,6 +131,44 @@
         </div>
       </div>
     </nav>
+
+    
+
+
+
+    <div class="flex h-[calc(100vh-64px)]">
+        <div class="left-0 top-0 max-height w-[80px] border-r border-[#B4B4B4] bg-gradient-to-b from-[#007AFF] to-[#5E3AE0] flex flex-col items-center py-20 space-y-6 z-50">
+          <!-- Optimized buttons with centered icons -->
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="home" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="calendar-plus" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="file-text" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="briefcase" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="bar-chart-2" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <div class="flex-grow"></div>
+          <!-- Help icon maintains same styling -->
+          <button class="w-[36px] h-[34px] mb-4 p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="help-circle" class="w-full h-full text-white scale-90"></i>
+          </button>
+        </div>
+        <!-- Main Content -->
+      
+
+
+
+
+
+
+
     <script>
       // Lucide icons initialization
       lucide.createIcons();
@@ -183,5 +224,8 @@
           });
         });
     </script>
+
+
+
   </body>
 </html>
