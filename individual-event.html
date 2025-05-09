@@ -140,14 +140,14 @@
       </div>
     </nav>
 
-   
+  
 
   <!-- Main Container -->
-<main class="px-10 py-8 max-w-7xl mx-auto space-y-8">
+<main class="px-6 sm:px-10 lg:px-56 py-8 space-y-8">
 
   <!-- Top Section: Title and Organizer -->
   <section>
-    <h2 class="text-2xl font-bold mb-3">Exploring R-Language for High School Innovators</h2>
+    <h2 class="text-2xl sm:text-4xl font-extrabold mb-3">Exploring R-Language for High School Innovators</h2>
     <div class="flex items-center gap-2">
       <img src="/media/images/Placeholder.jpg" alt="Organizer" class="w-8 h-8 rounded-full object-cover" />
       <p class="text-sm text-gray-600">Organized by <span class="font-semibold text-black">R Lang Nepal</span></p>
@@ -158,13 +158,13 @@
   <div class="border-t border-gray-300"></div>
 
   <!-- Content Grid -->
-  <div class="flex space-x-8">
+  <div class="flex flex-col lg:flex-row space-y-6 lg:space-y-0 lg:space-x-8">
     
     <!-- Left Side -->
-    <div class="w-2/3 space-y-6">
+    <div class="w-full lg:w-2/3 space-y-6">
 
       <!-- Event Image -->
-      <img src="/media/images/event_img.jpg" class="w-full max-w-[756px] h-auto md:h-[450px] rounded-md object-cover" alt="eventimage" />
+      <img src="/media/images/event_img.jpg" class="w-full h-auto md:h-[450px] rounded-md object-cover" alt="eventimage" />
 
       <!-- Details -->
       <div>
@@ -193,14 +193,31 @@
           <h2 class="text-lg font-semibold">Attendees</h2>
           <a href="#" class="text-sm text-blue-600 hover:underline">See all attendees</a>
         </div>
-        <div class="flex gap-6 flex-wrap">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <!-- Example Attendee Card -->
-          <div class="w-36 text-center border border-gray-300 rounded-lg p-2">
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
             <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
             <p class="text-sm font-medium">Rameshwor Yadav</p>
             <p class="text-xs text-gray-500">Guest</p>
           </div>
           <!-- Add more attendees here... -->
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Rameshwor Yadav</p>
+            <p class="text-xs text-gray-500">Guest</p>
+          </div>
+
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Rameshwor Yadav</p>
+            <p class="text-xs text-gray-500">Guest</p>
+          </div>
+
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Rameshwor Yadav</p>
+            <p class="text-xs text-gray-500">Guest</p>
+          </div>
         </div>
       </div>
 
@@ -210,26 +227,33 @@
           <h2 class="text-lg font-semibold">Sponsors</h2>
           <a href="#" class="text-sm text-blue-600 hover:underline">See all sponsors</a>
         </div>
-        <div class="flex gap-6 flex-wrap">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           <!-- Sponsor Card -->
-          <div class="w-36 text-center border border-gray-300 rounded-lg p-2">
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
             <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
             <p class="text-sm font-medium">Edutech Nepal</p>
           </div>
           <!-- Add more sponsors here... -->
-        </div>
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Edutech Nepal</p>
+          </div>
 
-        <!-- Action Buttons -->
-        <div class="flex justify-end gap-4 mt-8">
-          <button class="px-6 py-2 border border-gray-400 rounded-md hover:bg-gray-100">Share</button>
-          <button class="bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">Attend</button>
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Edutech Nepal</p>
+          </div>
+
+          <div class="w-full text-center border border-gray-300 rounded-lg p-2">
+            <img src="/media/images/Placeholder.jpg" alt="User" class="w-16 h-16 mx-auto rounded-full mb-2">
+            <p class="text-sm font-medium">Edutech Nepal</p>
+          </div>
         </div>
       </div>
-
     </div>
 
     <!-- Right Sidebar -->
-    <aside class="w-[310px] space-y-6">
+    <aside class="w-full lg:w-[310px] space-y-6">
 
       <!-- Event Details Card -->
       <div class="bg-white p-4 rounded-md shadow-md space-y-4">
@@ -244,34 +268,66 @@
       </div>
 
       <!-- RSVP Card -->
-      <div class="w-full h-[72px] bg-white border border-black/20 rounded-[8px] shadow-[4px_4px_4px_rgba(0,0,0,0.25)] flex justify-around items-center text-sm text-gray-700">
+      <div class="w-full h-[72px] bg-white border border-black/20 rounded-[8px] shadow-[1px_1px_1px_rgba(0,0,0,0.25)] flex justify-around items-center text-sm text-gray-700">
         <div class="flex flex-col items-center">
           <i data-lucide="star" class="w-5 h-5 text-indigo-500"></i>
           <span>Interested</span>
         </div>
         <div class="flex flex-col items-center">
-          <i data-lucide="check-circle" class="w-5 h-5 text-green-500"></i>
+          <i data-lucide="check-circle" class="w-5 h-5 text-indigo-500"></i>
           <span>Attending</span>
         </div>
         <div class="flex flex-col items-center">
-          <i data-lucide="x-circle" class="w-5 h-5 text-red-500"></i>
+          <i data-lucide="x-circle" class="w-5 h-5 text-indigo-500"></i>
           <span>Not Attending</span>
         </div>
       </div>
-
     </aside>
-
   </div>
 </main>
 
+<!-- Main Container -->
+<div class="bg-white w-full">
+  <!-- Secondary Container -->
+  <div class="px-6 sm:px-10 lg:px-56 py-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+    
+    <!-- Left Section -->
+    <div>
+      <p class="text-gray-600 text-base">Sunday, May 11 · 5:00 PM</p>
+      <h2 class="text-xl sm:text-2xl font-semibold mt-1">Chitwan Tech Meetup 2025</h2>
+    </div>
+
+    <!-- Right Section -->
+    <div class="flex items-center gap-3 flex-wrap justify-center sm:justify-end">
+      <!-- Status -->
+      <span class="font-medium">Free</span>
+
+      <!-- Save Icon -->
+      <button class="text-gray-600 hover:text-black">
+        <i data-lucide="bookmark" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Share Button -->
+      <button class="flex items-center px-4 py-2 border border-gray-400 rounded-md hover:bg-gray-100">
+        Share
+        <i data-lucide="share-2" class="ml-2 w-4 h-4"></i>
+      </button>
+
+      <!-- Attend Button -->
+      <button class="bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">
+        Attend
+      </button>
+    </div>
+  </div>
+</div>
 
 <!-- Footer Section -->
-<footer class="bg-[#FAF8FF] text-[#2C003E] font-['Roboto'] text-[15px] lg:px-56 py-10">
+<footer class="bg-[#FAF8FF] text-[#2C003E] font-['Roboto'] text-[15px] px-6 lg:px-56 py-10">
   <div class="container mx-auto flex flex-wrap justify-between items-center">
 
     <!-- Top Row: Heading + Button (tight horizontal spacing) -->
     <div class="flex items-center gap-6 flex-wrap w-full md:w-auto">
-      <h2 class="text-[22px] font-bold leading-tight">
+      <h2 class="text-xl sm:text-[22px] font-bold leading-tight">
         Create your own event.
       </h2>
       <button
@@ -289,7 +345,7 @@
 
       <!-- Column 1 -->
       <div>
-        <h3 class="text-[18px] font-bold mb-3">Your Account</h3>
+        <h3 class="text-lg sm:text-[18px] font-bold mb-3">Your Account</h3>
         <ul class="space-y-2">
           <li><button id="footerLoginBtn" class="cursor-pointer">Log in</button></li>
           <li><button id="footerSignupBtn" class="cursor-pointer">Sign up</button></li>
@@ -298,7 +354,7 @@
 
       <!-- Column 2 -->
       <div>
-        <h3 class="text-[18px] font-bold mb-3">Explore</h3>
+        <h3 class="text-lg sm:text-[18px] font-bold mb-3">Explore</h3>
         <ul class="space-y-2">
           <li><a href="#" class="hover:underline">Create an Event</a></li>
           <li><a href="#categories" class="hover:underline">Event Categories</a></li>
@@ -308,7 +364,7 @@
 
       <!-- Column 3 -->
       <div>
-        <h3 class="text-[18px] font-bold mb-3">Evenova</h3>
+        <h3 class="text-lg sm:text-[18px] font-bold mb-3">Evenova</h3>
         <ul class="space-y-2">
           <li><a href="#" class="hover:underline">About</a></li>
           <li><a href="#" class="hover:underline">Help</a></li>
@@ -319,7 +375,7 @@
 
     <!-- Follow Us Section -->
     <div class="pt-6 w-full">
-      <h3 class="text-[18px] font-bold mb-3">Follow us</h3>
+      <h3 class="text-lg sm:text-[18px] font-bold mb-3">Follow us</h3>
       <ul class="flex justify-center sm:justify-start space-x-6">
         <li><a href="#" class="text-xl text-[#2C003E] hover:text-blue-400"><i class="fab fa-facebook"></i></a></li>
         <li><a href="#" class="text-xl text-[#2C003E] hover:text-blue-400"><i class="fab fa-twitter"></i></a></li>
@@ -339,11 +395,7 @@
   </div>
 </footer>
 
-
-
-
-
-  <script>
+<script>
     // Lucide icons initialization
     lucide.createIcons();
 
@@ -365,9 +417,9 @@
         dropdownMenu.classList.add("hidden");
       }
     });
-  </script>
+</script>
 
-  <script>
+<script>
     // Function to handle page transitions smoothly
     function navigateToPage(url) {
       window.location.href = url;
@@ -395,7 +447,7 @@
           e.preventDefault();
         });
       });
-  </script>
+</script>
 
 <script>
  const map = L.map('map', {
@@ -408,10 +460,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
 // Set map dimensions
 document.getElementById('map').style.height = '316px';
-document.getElementById('map').style.width = '277px';
+document.getElementById('map').style.width = '100%';
 </script>
-
-
 
 </body>
 </html>
