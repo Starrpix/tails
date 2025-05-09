@@ -131,40 +131,50 @@
 
   <!-- Main Content -->
   <main class="max-w-3xl mx-auto px-8 pt-10 pb-20">
-    <!-- Title -->
-    <h1 class="text-2xl font-semibold mb-8">Payment Details</h1>
+      <!-- Heading -->
+      <h1 class="text-2xl font-bold mb-6">Payment Details</h1>
 
-    <!-- Ticket Box -->
-    <div class="border border-gray-300 rounded-md px-6 py-4 mb-10">
-      <div class="flex justify-between items-start">
+      <!-- Ticket Box -->
+      <div class="border rounded-md p-4 flex justify-between items-center mb-6">
         <div>
-          <p class="text-lg font-semibold">Conference Name</p>
-          <p class="text-sm text-gray-600">2 * Ticket A</p>
+          <p class="font-semibold">Conference Name</p>
+          <p class="text-sm text-gray-700">2 * Ticket A</p>
         </div>
-        <p class="text-lg font-semibold">$200.00</p>
+        <p class="font-semibold">$200.00</p>
       </div>
-    </div>
-
-    <!-- Image Placeholder -->
-    <div class="mb-10 flex justify-center">
-      <div class="w-32 h-20 border-2 border-gray-300 border-dashed flex items-center justify-center">
-        <span class="text-xs text-gray-400">Image</span>
+  
+      <!-- Divider -->
+      <hr class="mb-6" />
+  
+      <!-- Image -->
+      <div class="w-40 h-24  flex items-center justify-center">
+        <img src="/media/images/khalti.jpg" class="max-w-full max-h-full  object-contain" alt="eventimage" />
+        
+          
+         
+      
       </div>
-    </div>
-
-    <!-- Total -->
-    <div class="flex justify-between items-center mb-6">
-      <p class="text-lg font-semibold">Total</p>
-      <p class="text-lg font-semibold">$200.00</p>
-    </div>
-
-    <!-- Payment Input + Button -->
-    <div class="flex space-x-4">
-      <input type="text" class="flex-1 px-4 py-2 border border-gray-400 rounded-md" placeholder="Enter card or code">
-      <button class="w-full py-2 rounded text-white font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">
-        Pay now
+  
+      <!-- Divider -->
+      <hr class="mb-6" />
+  
+      <!-- Total Section -->
+      <div class="flex justify-between items-center mb-4">
+        <p class="font-semibold text-lg">Total</p>
+        <p class="font-semibold text-lg">$200.00</p>
+      </div>
+  
+      <!-- Payment Inputs -->
+      <div class="flex justify-center gap-4 mt-6">
+        <button class="w-1/2 bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">
+          Cancel
+        </button>
+        <button class=" w-1/2 bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition">
+          Pay now
       </button>
-    </div>
+         
+      
+      </div>
   </main>
 
 
