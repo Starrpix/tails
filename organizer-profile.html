@@ -160,60 +160,85 @@
             <i data-lucide="help-circle" class="w-full h-full text-white scale-90"></i>
           </button>
         </div>
-        <!-- Main Content -->
-       
-    <div class="flex-1 p-6">
-      <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-bold">Organization Settings</h1>
-        <div class="flex items-center space-x-3">
-          
-        </div>
-      </div>
-
-      <!-- Tabs -->
-      <div class="mt-4 border-b border-gray-200 text-sm space-x-6 text-gray-600">
-        <button class="pb-2 border-b-2 border-transparent hover:border-black">Organizer profile</button>
-        <button class="pb-2 border-b-2 border-transparent hover:border-black">Team Management</button>
-        <button class="pb-2 border-b-2 border-transparent hover:border-black">Ticket Fees</button>
-        <button class="pb-2 border-b-2 border-transparent hover:border-black">Plan Management</button>
-        <button class="pb-2 border-b-2 border-transparent hover:border-black">App Extensions</button>
-      </div>
-
-      <!-- Roles Section -->
-      <div class="mt-6">
-        <div class="flex space-x-4">
-          <button class="bg-white border px-4 py-2 rounded text-gray-600">Users</button>
-          <button class="bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition ">
-            Roles
-        </button>
-        </div>
-
-        <div class="mt-4 flex items-center space-x-4">
-          <input type="text" placeholder="Enter text to search" class="border rounded px-4 py-2 w-80"/>
-          <button class="bg-blue-600 text-white px-4 py-2 rounded shadow bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition ">
-            Create new role
-        </button>
-        </div>
-
-        <div class="mt-6 border-t">
-          <div class="py-2 font-semibold text-gray-700">Name</div>
-          <div class="space-y-4 mt-2">
-            <!-- Organizer -->
-            <div class="flex items-center space-x-4">
-              <img src="/media/images/hero.png" alt="Organizer" class="w-8 h-8 rounded-full border border-gray-300"/>
-              <span>Organizer</span>
-            </div>
-            <!-- Volunteer -->
-            <div class="flex items-center space-x-4">
-              <img src="/media/images/hero.png" alt="Volunteer" class="w-8 h-8 rounded-full border border-gray-300"/>
-              <span>Volunteer</span>
+        <!-- Main content -->
+    <div class="flex-1 px-8 py-6">
+        <!-- Header -->
+        <div class="flex justify-between items-center">
+          <h1 class="text-3xl font-bold">Organization Settings</h1>
+          <div class="flex items-center space-x-3">
+            <button class="border rounded-full px-4 py-1 text-sm">Create</button>
+            <div class="flex items-center space-x-2 bg-gray-100 px-3 py-1 rounded-full">
+              <img src="https://i.imgur.com/dRykUNM.png" class="w-6 h-6 rounded-full" />
+              <span>Starpix</span>
             </div>
           </div>
         </div>
+  
+        <!-- Tabs -->
+        <div class="mt-4 border-b border-gray-200 text-sm space-x-6 text-gray-600">
+          <button class="pb-2 border-b-2 border-black font-medium">Organizer profile</button>
+          <button class="pb-2 border-b-2 border-transparent hover:border-black">Team Management</button>
+          <button class="pb-2 border-b-2 border-transparent hover:border-black">Ticket Fees</button>
+          <button class="pb-2 border-b-2 border-transparent hover:border-black">Plan Management</button>
+          <button class="pb-2 border-b-2 border-transparent hover:border-black">App Extensions</button>
+        </div>
+  
+        <!-- Organizer Profiles -->
+        <div class="mt-8">
+          <h2 class="font-semibold text-lg mb-1">Organizer Profiles</h2>
+          <p class="text-sm text-gray-600 mb-4">
+            Each profile describes a unique organizer and shows all of their events on one page. 
+            Having a complete profile can encourage attendees to follow you.
+            <a href="#" class="text-blue-600 hover:underline">Learn more</a>
+          </p>
+  
+          <!-- Organizer Card -->
+          <div class="border border-gray-400 rounded flex justify-between items-center p-4 w-full max-w-xl">
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 rounded-full border flex items-center justify-center text-gray-500 bg-gray-100">✖</div>
+              <span class="text-sm text-gray-700">Unnamed Organizer</span>
+            </div>
+            <button class="bg-gray-300 text-sm px-4 py-1 rounded">Edit</button>
+          </div>
+  
+          <!-- Add Button -->
+          <button class="mt-4 bg-white border border-gray-400 text-sm px-4 py-2 rounded hover:bg-gray-100">
+            Add Organizer Profile
+          </button>
+        </div>
+  
+        <!-- Organization Section -->
+        <div class="mt-10">
+          <h2 class="font-semibold text-lg mb-1">Organization</h2>
+          <p class="text-sm text-gray-600 mb-4">Details that apply across your events and venues</p>
+  
+          <!-- Upload box -->
+          <div class="w-52 h-52 border border-gray-300 bg-gray-50 flex flex-col justify-center items-center text-center text-sm text-gray-600 mb-6">
+            <p class="mb-1">Drag & drop or click to add organization logo</p>
+            <p class="text-xs text-gray-400 mt-2">JPEG or PNG, no larger than 10 MB</p>
+          </div>
+  
+          <!-- Organization Name -->
+          <div class="mb-4">
+            <label class="block text-sm text-gray-700 mb-1">Organization Name</label>
+            <input type="text" value="Sujan Poudel" class="border border-gray-300 px-3 py-2 w-full max-w-md rounded"/>
+            <div class="text-xs text-right text-gray-500">15/50</div>
+          </div>
+  
+          <!-- Preferred Country -->
+          <div>
+            <label class="block text-sm text-gray-700 mb-1">Preferred Country</label>
+            <select class="border border-gray-300 px-3 py-2 w-full max-w-md rounded">
+              <option>Select a Country</option>
+              <!-- Add more country options here -->
+            </select>
+          </div>
+        </div>
+  
+      </div>
     </div>
-  </div>
-
-
+  </body>
+  </html>
 
 
 
