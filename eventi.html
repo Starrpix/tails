@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Step Event Creation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <div class="bg-white max-w-4xl w-full rounded-lg shadow-lg p-6">
+
+    <h1 class="text-2xl font-bold mb-6">Create New Event</h1>
+
+    <!-- Step Navigation -->
+    <div class="flex space-x-4 mb-6">
+      <button id="stepBtn1" class="flex-1 py-2 px-4 rounded bg-blue-600 text-white font-semibold">1. Event Details</button>
+      <button id="stepBtn2" class="flex-1 py-2 px-4 rounded bg-gray-300 text-gray-700 font-semibold" disabled>2. Tickets</button>
+      <button id="stepBtn3" class="flex-1 py-2 px-4 rounded bg-gray-300 text-gray-700 font-semibold" disabled>3. Publish</button>
+    </div>
+
+    <!-- Step 1: Event Details -->
+    <div id="step1">
+      <form id="eventForm" class="space-y-4">
+
+        <!-- Upload Picture -->
+        <div>
+          <label class="block mb-1 font-medium">Event Picture</label>
+          <input type="file" id="eventPic" accept="image/*" class="block w-full border rounded p-2" />
+          <img id="picPreview" class="mt-2 max-h-48 rounded shadow" style="display:none;" />
+        </div>
+
+        <!-- Event Title -->
+        <div>
+          <label class="block mb-1 font-medium">Event Title</label>
+          <input type="text" id="eventTitle" placeholder="Enter event title" class="w-full border rounded p-2" required />
+        </div>
+
+        <!-- Date and Time -->
+        <div>
+          <label class="block mb-1 font-medium">Date & Time</label>
+          <input type="datetime-local" id="eventDateTime" class="w-full border rounded p-2" required />
+        </div>
+
+        <!-- Event Format -->
+        <div>
+          <label class="block mb-1 font-medium">Event Format</label>
+          <select id="eventFormat" class="w-full border rounded p-2" required>
+            <option value="">Select format</option>
+            <option value="online">Online</option>
+            <option value="in-person">In-Person</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </div>
+
+        <!-- Location -->
+        <div>
+          <label class="block mb-1 font-medium">Location</label>
+          <input type="text" id="eventLocation" placeholder="Enter location address" class="w-full border rounded p-2" required />
+          <div class="mt-2 flex space-x-4">
+            <input type="text" id="latitude" placeholder="Latitude" class="w-1/2 border rounded p-2" readonly />
+            <input type="text" id="longitude" placeholder="Longitude" class="w-1/2 border rounded p-2" readonly />
+          </div>
+          <button type="button" onclick="getLatLong()" class="mt-2 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">Get Coordinates</button>
+        </div>
+
+        <div class="flex justify-end">
+          <button type="button" onclick="goToStep2()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Next: Tickets</button>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Step 2: Tickets CRUD -->
+    <div id="step2" class="hidden">
+      <h2 class="text-xl font-semibold mb-4">Manage Tickets</h2>
+
+      <form id="ticketForm" class="space-y-4 mb-4">
+        <input type="hidden" id="editTicketId" />
+        <div class="flex space-x-4">
+          <input type="text" id="ticketName" placeholder="Ticket Name" class="flex-1 border rounded p-2" required />
+          <input type="number" id="ticketQty" placeholder="Quantity" min="1" class="w-24 border rounded p-2" required />
+          <input type="number" id="ticketPrice" placeholder="Price" min="0" step="0.01" class="w-32 border rounded p-2" required />
+        </div>
+        <div>
+          <button type="submit" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Add / Update Ticket</button>
+          <button type="button" onclick="clearTicketForm()" class="ml-2 bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Clear</button>
+        </div>
+      </form>
+
+      <table class="min-w-full bg-white shadow rounded">
+        <thead>
+          <tr>
+            <th class="border px-4 py-2">Name</th>
+            <th class="border px-4 py-2">Quantity</th>
+            <th class="border px-4 py-2">Price</th>
+            <th class="border px-4 py-2">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="ticketTableBody"></tbody>
+      </table>
+
+      <div class="flex justify-between mt-6">
+        <button type="button" onclick="goToStep1()" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600">Back</button>
+        <button type="button" onclick="goToStep3()" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Next: Publish</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Publish -->
+    <div id="step3" class="hidden text-center space-y-6">
+      <h2 class="text-xl font-semibold">Ready to Publish?</h2>
+      <div class="text-left max-w-lg mx-auto">
+        <h3 class="font-semibold">Event Summary:</h3>
+        <p><strong>Title:</strong> <span id="summaryTitle"></span></p>
+        <p><strong>Date & Time:</strong> <span id="summaryDateTime"></span></p>
+        <p><strong>Format:</strong> <span id="summaryFormat"></span></p>
+        <p><strong>Location:</strong> <span id="summaryLocation"></span></p>
+        <p><strong>Latitude:</strong> <span id="summaryLat"></span></p>
+        <p><strong>Longitude:</strong> <span id="summaryLong"></span></p>
+        <p><strong>Tickets:</strong></p>
+        <ul id="summaryTickets" class="list-disc ml-6"></ul>
+      </div>
+
+      <div>
+        <button type="button" onclick="goToStep2()" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 mr-4">Back</button>
+        <button type="button" onclick="publishEvent()" class="bg-green-600 text-white px-6 py-2 rounded hover:bg-green-700">Publish Event</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // State
+    let tickets = [];
+    let editingTicketId = null;
+
+    // Image preview
+    document.getElementById('eventPic').addEventListener('change', function(event){
+      const file = event.target.files[0];
+      if(file) {
+        const reader = new FileReader();
+        reader.onload = function(e){
+          const img = document.getElementById('picPreview');
+          img.src = e.target.result;
+          img.style.display = 'block';
+        }
+        reader.readAsDataURL(file);
+      }
+    });
+
+    function getLatLong() {
+      const location = document.getElementById('eventLocation').value;
+      if (!location.trim()) {
+        alert('Please enter location address first.');
+        return;
+      }
+      // Using browser's geocoder service requires external API like Google Maps or OpenStreetMap.
+      // For demo, we'll just simulate values
+      // TODO: Integrate with actual geocoding API for real lat/long
+
+      // Simulated lat/long:
+      document.getElementById('latitude').value = '27.7172';  // Kathmandu example
+      document.getElementById('longitude').value = '85.3240';
+      alert('Latitude and Longitude filled with sample coordinates. Integrate real geocoding for production.');
+    }
+
+    // Step controls
+    function goToStep1() {
+      setStep(1);
+    }
+    function goToStep2() {
+      // Validate step 1 fields
+      const title = document.getElementById('eventTitle').value.trim();
+      const dateTime = document.getElementById('eventDateTime').value;
+      const format = document.getElementById('eventFormat').value;
+      const location = document.getElementById('eventLocation').value.trim();
+      const lat = document.getElementById('latitude').value;
+      const long = document.getElementById('longitude').value;
+
+      if (!title || !dateTime || !format || !location || !lat || !long) {
+        alert('Please fill all event details and get coordinates.');
+        return;
+      }
+
+      setStep(2);
+    }
+    function goToStep3() {
+      if(tickets.length === 0){
+        alert('Please add at least one ticket before proceeding.');
+        return;
+      }
+      setStep(3);
+      showSummary();
+    }
+    function setStep(num) {
+      document.getElementById('step1').classList.toggle('hidden', num !== 1);
+      document.getElementById('step2').classList.toggle('hidden', num !== 2);
+      document.getElementById('step3').classList.toggle('hidden', num !== 3);
+
+      // Update step buttons
+      for(let i=1; i<=3; i++) {
+        const btn = document.getElementById('stepBtn'+i);
+        if(i === num) {
+          btn.classList.add('bg-blue-600','text-white');
+          btn.classList.remove('bg-gray-300','text-gray-700');
+          btn.disabled = false;
+        } else {
+          btn.classList.remove('bg-blue-600','text-white');
+          btn.classList.add('bg-gray-300','text-gray-700');
+          btn.disabled = true;
+        }
+      }
+    }
+
+    // Tickets CRUD
+    const ticketForm = document.getElementById('ticketForm');
+    ticketForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('ticketName').value.trim();
+      const qty = parseInt(document.getElementById('ticketQty').value);
+      const price = parseFloat(document.getElementById('ticketPrice').value);
+
+      if (!name || !qty || isNaN(price) || price < 0) {
+        alert('Please fill valid ticket details.');
+        return;
+      }
+
+      if(editingTicketId){
+        // Update existing
+        const idx = tickets.findIndex(t => t.id === editingTicketId);
+        if(idx !== -1){
+          tickets[idx] = { id: editingTicketId, name, quantity: qty, price };
+        }
+      } else {
+        // Add new
+        tickets.push({ id: Date.now().toString(), name, quantity: qty, price });
+      }
+
+      clearTicketForm();
+      renderTickets();
+    });
+
+    function renderTickets(){
+      const tbody = document.getElementById('ticketTableBody');
+      tbody.innerHTML = '';
+      tickets.forEach(t => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td class="border px-4 py-2">${t.name}</td>
+          <td class="border px-4 py-2">${t.quantity}</td>
+          <td class="border px-4 py-2">$${t.price.toFixed(2)}</td>
+          <td class="border px-4 py-2 space-x-2">
+            <button onclick="editTicket('${t.id}')" class="bg-yellow-400 px-3 py-1 rounded hover:bg-yellow-500">Edit</button>
+            <button onclick="deleteTicket('${t.id}')" class="bg-red-500 px-3 py-1 rounded hover:bg-red-600 text-white">Delete</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function editTicket(id){
+      const t = tickets.find(t => t.id === id);
+      if(t){
+        editingTicketId = id;
+        document.getElementById('ticketName').value = t.name;
+        document.getElementById('ticketQty').value = t.quantity;
+        document.getElementById('ticketPrice').value = t.price;
+      }
+    }
+    function deleteTicket(id){
+      tickets = tickets.filter(t => t.id !== id);
+      renderTickets();
+    }
+    function clearTicketForm(){
+      editingTicketId = null;
+      ticketForm.reset();
+    }
+
+    // Show event summary on Step 3
+    function showSummary(){
+      document.getElementById('summaryTitle').textContent = document.getElementById('eventTitle').value;
+      document.getElementById('summaryDateTime').textContent = document.getElementById('eventDateTime').value;
+      document.getElementById('summaryFormat').textContent = document.getElementById('eventFormat').value;
+      document.getElementById('summaryLocation').textContent = document.getElementById('eventLocation').value;
+      document.getElementById('summaryLat').textContent = document.getElementById('latitude').value;
+      document.getElementById('summaryLong').textContent = document.getElementById('longitude').value;
+
+      const ul = document.getElementById('summaryTickets');
+      ul.innerHTML = '';
+      tickets.forEach(t => {
+        const li = document.createElement('li');
+        li.textContent = `${t.name} - Qty: ${t.quantity} - $${t.price.toFixed(2)}`;
+        ul.appendChild(li);
+      });
+    }
+
+    function publishEvent(){
+      alert('Event published successfully!\n\n(Implement backend integration to save data)');
+      // Reset UI
+      location.reload();
+    }
+
+    // Init step 1 active
+    setStep(1);
+  </script>
+</body>
+</html>
