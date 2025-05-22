@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evenova</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.cdnfonts.com/css/roboto" rel="stylesheet" />
+    <style>
+      .gradient-text {
+        background: linear-gradient(180deg, #007aff 0%, #5e3ae0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .gradient-btn {
+        background: linear-gradient(90deg, #007aff 0%, #5e3ae0 100%);
+      }
+    </style>
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="flex items-center justify-between bg-white p-2.5 py-4 px-5 h-[64px] w-full relative shadow-md"
+    >
+      <div class="flex items-center space-x-1">
+        <a href="/home.html">
+          <img
+            src="/media/images/evenova_1.png"
+            alt="Logo"
+            class="w-[250px] h-[140px] object-contain justify-center items-center mt-1"
+          />
+        </a>
+       
+         
+          
+        </div>
+      </div>
+      <div class="flex items-center space-x-4 relative" id="nav-user-section">
+       
+       
+        <div class="relative">
+          <button
+            id="profileDropdownToggle"
+            class="flex items-center space-x-2 focus:outline-none"
+          >
+          <div
+          class="w-[44px] h-[44px] rounded-full bg-gray-300 overflow-hidden"
+        ><img src="/media/images/ep1.svg" alt=""></div>
+        
+            <span
+              class="text-black text-center font-['Roboto'] text-[20px] font-light leading-[134.766%]"
+              >Starrpix</span
+            >
+            <svg
+              class="w-4 h-4 ml-1"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
+          <!-- Organizer Dropdown Menu -->
+          <div
+            id="dropdownMenuOrganizer"
+            class="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-md py-2 z-50 hidden"
+          >
+            <a
+              href="atendee.html"
+              class="w-full text-left px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="arrow-left-right" class="w-4 h-4"></i> Switch to
+              Attending
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-indigo-500"
+            >
+              <i data-lucide="settings" class="w-4 h-4"></i> Account Settings
+            </a>
+            <a
+              href="#"
+              class="block px-4 py-2 flex items-center gap-2 hover:bg-gray-100 active:bg-gray-200 text-sm text-red-600"
+            >
+              <i data-lucide="log-out" class="w-4 h-4"></i> Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    
+
+
+
+    <div class="flex h-[calc(100vh-64px)]">
+        <div class="left-0 top-0 max-height w-[80px] border-r border-[#B4B4B4] bg-gradient-to-b from-[#007AFF] to-[#5E3AE0] flex flex-col items-center py-20 space-y-6 z-50">
+          <!-- Optimized buttons with centered icons -->
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="home" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="calendar-plus" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="file-text" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="briefcase" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <button class="w-[36px] h-[34px] p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="bar-chart-2" class="w-full h-full text-white scale-90"></i>
+          </button>
+          <div class="flex-grow"></div>
+          <!-- Help icon maintains same styling -->
+          <button class="w-[36px] h-[34px] mb-4 p-0 hover:bg-white/10 transition-colors">
+            <i data-lucide="help-circle" class="w-full h-full text-white scale-90"></i>
+          </button>
+        </div>
+
+        <script>
+      // Lucide icons initialization
+      lucide.createIcons();
+
+      // Initialize dropdown toggle
+      const dropdownToggle = document.getElementById("profileDropdownToggle");
+      const dropdownMenuOrganizer = document.getElementById(
+        "dropdownMenuOrganizer"
+      );
+
+      // Toggle dropdown visibility
+      dropdownToggle.addEventListener("click", () => {
+        dropdownMenuOrganizer.classList.toggle("hidden");
+      });
+
+      // Close dropdown when clicking outside
+      document.addEventListener("click", (event) => {
+        if (
+          !dropdownToggle.contains(event.target) &&
+          !dropdownMenuOrganizer.contains(event.target)
+        ) {
+          dropdownMenuOrganizer.classList.add("hidden");
+        }
+      });
+    </script>
+
+    <script>
+      // Function to handle page transitions smoothly
+      function navigateToPage(url) {
+        window.location.href = url;
+      }
+
+      // Handle clicks on links in dropdown menus
+      document
+        .querySelectorAll("#dropdownMenu a, #dropdownMenuOrganizer a")
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            if (e.target.tagName === "A" && e.target.href.includes(".html")) {
+              e.preventDefault();
+              navigateToPage(e.target.href);
+            }
+          });
+        });
+
+      // Prevent default behavior on non-navigation links
+      document
+        .querySelectorAll(
+          '#dropdownMenu a:not([href*=".html"]), #dropdownMenuOrganizer a:not([href*=".html"])'
+        )
+        .forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+          });
+        });
+    </script>
+<!-- Main Layout -->
+    <div class="flex flex-1">
+
+      <!-- Left Panel -->
+      <div class="w-80 bg-white border-r">
+        <div class="p-4 border-b">
+          <a href="#" class="text-sm text-blue-600 font-medium">Back to events</a>
+        </div>
+
+        <div class="p-4">
+          <p class="text-gray-400 mb-2 text-sm">Frame</p>
+          <div class="bg-white shadow rounded p-4 mb-6">
+            <h2 class="font-semibold">BBC Hackathon</h2>
+            <p class="text-sm text-gray-500 mt-1">Sat, Jan 24, 2025, 12:00 AM</p>
+            <div class="flex items-center justify-between mt-4">
+              <button class="px-4 py-1 bg-gray-200 rounded-full text-sm">Draft</button>
+              <button class="text-sm text-blue-600 font-medium">Preview</button>
+            </div>
+          </div>
+
+          <div>
+            <p class="text-sm text-gray-600 font-medium mb-2">Steps</p>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-2">
+                <input type="radio" disabled>
+                <span class="text-sm text-gray-700">Build event page</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <input type="radio" disabled>
+                <span class="text-sm text-gray-700">Add tickets</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <input type="radio" disabled>
+                <span class="text-sm text-gray-700">Publish</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 p-6 overflow-auto bg-white">
+        <div class="flex justify-between items-center">
+          <h1 class="text-3xl font-bold">Event dashboard</h1>
+          <div class="flex items-center gap-3">
+           
+          </div>
+        </div>
+        <p class="text-sm text-gray-500 mt-1">Jan 26, 2025 at 12:00am</p>
+
+        <!-- Event Link -->
+        <div class="mt-6 flex items-center gap-2">
+          <label class="text-sm font-medium">Event link</label>
+          <input type="text" readonly value="https://www.evenova.com/e/bbc-hackathon-tickets-1116581488289"
+            class="flex-1 border rounded px-4 py-2 text-sm"/>
+          <button class="border px-4 py-2 rounded text-sm">Copy Link</button>
+          <button class="border px-4 py-2 rounded text-sm">Share</button>
+        </div>
+
+        <!-- Stats Boxes -->
+        <div class="grid grid-cols-3 gap-4 mt-6">
+          <div class="border rounded shadow p-4">
+            <p class="text-sm text-gray-500">Net Sales</p>
+            <p class="text-2xl font-semibold">$0.00</p>
+            <p class="text-xs text-gray-600 mt-1">Open event sales breakdown</p>
+          </div>
+          <div class="border rounded shadow p-4">
+            <p class="text-sm text-gray-500">Tickets sold</p>
+            <p class="text-2xl font-semibold">0<span class="text-sm text-gray-500">/400</span></p>
+          </div>
+          <div class="border rounded shadow p-4">
+            <p class="text-sm text-gray-500">Page Views</p>
+            <p class="text-2xl font-semibold">0</p>
+            <p class="text-xs text-gray-600 mt-1">Open page views report</p>
+          </div>
+        </div>
+
+        <!-- Recent Orders Table -->
+        <div class="mt-8">
+          <h2 class="text-lg font-medium mb-2">Recent Orders</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-left border-b">
+                  <th class="py-2 pr-4">Order #</th>
+                  <th class="py-2 pr-4">Name</th>
+                  <th class="py-2 pr-4">Quantity</th>
+                  <th class="py-2 pr-4">Ticket type</th>
+                  <th class="py-2 pr-4">Price</th>
+                  <th class="py-2">Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- No data yet -->
+                <tr>
+                  <td colspan="6" class="text-center py-8 text-gray-400">No recent orders</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  </body>
+</html>
